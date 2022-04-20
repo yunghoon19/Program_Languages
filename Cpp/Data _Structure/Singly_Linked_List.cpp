@@ -136,6 +136,12 @@ public:
         listSize++;
         return;
     }
+
+    // 리스트 원하는 값 삭제
+    void SelectDelNode(T _value)
+    {
+        
+    }
 };
 
 int main(void)
