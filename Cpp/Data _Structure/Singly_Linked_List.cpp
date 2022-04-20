@@ -17,18 +17,21 @@ public:
 
 public:
     Node(T _n) : value(_n), nextNode(NULL) { cout << "Node Create!" << endl; }
-    ~Node() { cout << "Node Destroy!" << endl; }
+    ~Node() 
+    { 
+        //cout << "Node Destroy!" << endl; 
+    }
 
 public:
-    int GetValue() { return value; }
+    T GetValue() { return value; }
 };
 
 template <typename T>
 class Linked_List    // 단일 연결 리스트
 {
 private:
-    int listSize;       // 리스트의 크기
-    Node<T>* rootNode;     // 리스트의 루트 노드
+    int listSize;         // 리스트의 크기
+    Node<T>* rootNode;    // 리스트의 루트 노드
 
 public:
     Linked_List() : rootNode(NULL), listSize(0) { cout << "Linked_List Create!" << endl; };
@@ -61,6 +64,8 @@ public:
             locationCheck->nextNode = new Node<T>(_value);
         }
         listSize++;
+
+        return;
     }
 
     // 리스트의 사이즈 리턴
@@ -89,9 +94,48 @@ public:
             cout << ">> " << currentNode->GetValue() << endl;
             currentNode = currentNode->nextNode;
         }
+
+        return;
     }
 
     // 리스트의 원하는 위치에 데이터 삽입
+    void InsertInList(T _value, int _location)
+    {
+        Node<T>* nodeCheck = rootNode;
+        Node<T>* temp = NULL;
+
+        if (_location < 1)
+        {
+            cout << "Error: Not Include Item!" << endl;
+            listSize++;
+            return;
+        }
+        else if (_location == 1)
+        {
+            temp = rootNode;
+            rootNode = new Node<T>(_value);
+            rootNode->nextNode = temp;
+        }
+        else if (_location > listSize)
+        {
+            AddInLastNode(_value);
+            return;
+        }
+        else
+        {
+            for (int i = 1; i < _location - 1; i++)
+            {
+                nodeCheck = nodeCheck->nextNode;
+            }
+
+            temp = nodeCheck->nextNode;
+            nodeCheck->nextNode = new Node<T>(_value);
+            nodeCheck->nextNode->nextNode = temp;
+        }
+
+        listSize++;
+        return;
+    }
 };
 
 int main(void)
@@ -106,6 +150,17 @@ int main(void)
     cout << "List Last Node Value Pirnt : " << l1.GetLastNodeValue() << endl;
     cout << "List Size : " << l1.GetListSize() << endl;
     l1.PrintList();
+
+    cout << "List Size : " << l1.GetListSize() << endl;
+    l1.InsertInList(0, 2);
+    l1.PrintList();
+    cout << "List Size : " << l1.GetListSize() << endl;
+    l1.InsertInList(0, 5);
+    l1.PrintList();
+    cout << "List Size : " << l1.GetListSize() << endl;
+    l1.InsertInList(5, 7);
+    l1.PrintList();
+    cout << "List Size : " << l1.GetListSize() << endl;
 
     return 0;
 }
