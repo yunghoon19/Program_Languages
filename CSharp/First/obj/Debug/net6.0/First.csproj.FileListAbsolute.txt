@@ -1,0 +1,15 @@
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\bin\Debug\net6.0\First.exe
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\bin\Debug\net6.0\First.deps.json
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\bin\Debug\net6.0\First.runtimeconfig.json
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\bin\Debug\net6.0\First.dll
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\bin\Debug\net6.0\First.pdb
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.csproj.AssemblyReference.cache
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.AssemblyInfoInputs.cache
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.AssemblyInfo.cs
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.csproj.CoreCompileInputs.cache
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.dll
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\refint\First.dll
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.pdb
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\First.genruntimeconfig.cache
+C:\Users\hsofi\Documents\GitHub\Program_Languages\CSharp\First\obj\Debug\net6.0\ref\First.dll
