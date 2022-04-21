@@ -69,7 +69,7 @@ public:
     }
 
     // 리스트 맨 끝에 노드를 출력 & 삭제
-    void pop_Back()
+    void Pop_Back()
     {
         if (rootNode == NULL)
         {
@@ -97,7 +97,7 @@ public:
     }
 
     // 리스트가 비어있는지 검사
-    bool list_Empty()
+    bool List_Empty()
     {
         if (rootNode == NULL)
         {
@@ -118,7 +118,7 @@ public:
     // 리스트의 마지막 노드의 value 리턴
     T Back()
     {
-        if (list_Empty()) 
+        if (List_Empty()) 
         { 
             cout << "List Empty!" << endl;
 
@@ -135,14 +135,14 @@ public:
     // 연결리스트의 모든 원소 출력
     void PrintList()
     {
-        Node<T>* currentNode = rootNode;
-
-        if (list_Empty())
+        if (List_Empty())
         {
             cout << "List Empty!" << endl;
 
             return;
         }
+
+        Node<T>* currentNode = rootNode;
 
         while (currentNode != NULL)
         {
@@ -159,24 +159,23 @@ public:
         Node<T>* nodeCheck = rootNode;
         Node<T>* temp = NULL;
 
-        if (_location < 1)
+        if (_location < 1)                              // 1
         {
             cout << "Location is Not Found!" << endl;
-            listSize++;
             return;
         }
-        else if (_location == 1)
+        else if (_location == 1)                        // 2
         {
             temp = rootNode;
             rootNode = new Node<T>(_value);
             rootNode->nextNode = temp;
         }
-        else if (_location > listSize)
+        else if (_location > listSize)                  // 3
         {
             Push_back(_value);
             return;
         }
-        else
+        else                                            // 4
         {
             for (int i = 1; i < _location - 1; i++)
             {
@@ -188,7 +187,7 @@ public:
             nodeCheck->nextNode->nextNode = temp;
         }
 
-        listSize++;
+        listSize++;                                     // 5
         return;
     }
 };
@@ -210,7 +209,7 @@ int main(void)
     l1.InsertInList(0, 3);
     l1.PrintList();
     cout << "List Size : " << l1.GetListSize() << endl;
-    l1.pop_Back();
+    l1.Pop_Back();
     l1.PrintList();
     cout << "List Size : " << l1.GetListSize() << endl;
 
