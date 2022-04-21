@@ -34,10 +34,10 @@ private:
     Node<T>* rootNode;    // 리스트의 루트 노드
 
 public:
-    Linked_List() : rootNode(NULL), listSize(0) { cout << "Linked_List Create!" << endl; };
+    Linked_List() : rootNode(NULL), listSize(0) { cout << "Linked List Create!" << endl; };
     ~Linked_List()
     {
-        cout << "Linked_List Destroy!" << endl;
+        cout << "Linked List Destroy!" << endl;
         while (listSize--)
         {
             Node<T>* temp = rootNode->nextNode;
@@ -48,8 +48,8 @@ public:
     }
 
 public:
-    // 리스트 맨 끝에 노드를 추가하는 함수
-    void AddInLastNode(T _value)  
+    // 리스트 마지막에 노드 추가
+    void Push_back(T _value)
     {
         if (rootNode == NULL)
         {
@@ -68,6 +68,47 @@ public:
         return;
     }
 
+    // 리스트 맨 끝에 노드를 출력 & 삭제
+    void pop_Back()
+    {
+        if (rootNode == NULL)
+        {
+            cout << "Root Node is Not Found!" << endl;
+            return;
+        }
+        else
+        {
+            Node<T>* tempNode;
+            Node<T>* lastSelect = rootNode;
+
+            while (lastSelect->nextNode != NULL) 
+            { 
+                tempNode = lastSelect;
+                lastSelect = lastSelect->nextNode;
+            }
+
+            cout << "Pop >> " << lastSelect->GetValue() << endl;
+
+            tempNode->nextNode = NULL;
+        }
+        listSize--;
+        
+        return;
+    }
+
+    // 리스트가 비어있는지 검사
+    bool list_Empty()
+    {
+        if (rootNode == NULL)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     // 리스트의 사이즈 리턴
     int GetListSize()
     {
@@ -75,8 +116,15 @@ public:
     }
 
     // 리스트의 마지막 노드의 value 리턴
-    T GetLastNodeValue()
+    T Back()
     {
+        if (list_Empty()) 
+        { 
+            cout << "List Empty!" << endl;
+
+            return 0;
+        }
+        
         Node<T>* lastNodeCheck = rootNode;
 
         while (lastNodeCheck->nextNode != NULL) { lastNodeCheck = lastNodeCheck->nextNode; }
@@ -89,9 +137,16 @@ public:
     {
         Node<T>* currentNode = rootNode;
 
+        if (list_Empty())
+        {
+            cout << "List Empty!" << endl;
+
+            return;
+        }
+
         while (currentNode != NULL)
         {
-            cout << ">> " << currentNode->GetValue() << endl;
+            cout << "Print >> " << currentNode->GetValue() << endl;
             currentNode = currentNode->nextNode;
         }
 
@@ -106,7 +161,7 @@ public:
 
         if (_location < 1)
         {
-            cout << "Error: Not Include Item!" << endl;
+            cout << "Location is Not Found!" << endl;
             listSize++;
             return;
         }
@@ -118,7 +173,7 @@ public:
         }
         else if (_location > listSize)
         {
-            AddInLastNode(_value);
+            Push_back(_value);
             return;
         }
         else
@@ -136,35 +191,26 @@ public:
         listSize++;
         return;
     }
-
-    // 리스트 원하는 값 삭제
-    void SelectDelNode(T _value)
-    {
-        
-    }
 };
 
 int main(void)
 {
     Linked_List<int> l1;
 
-    l1.AddInLastNode(1);
-    l1.AddInLastNode(2);
-    l1.AddInLastNode(3);
-    l1.AddInLastNode(4);
+    l1.Back();
 
-    cout << "List Last Node Value Pirnt : " << l1.GetLastNodeValue() << endl;
-    cout << "List Size : " << l1.GetListSize() << endl;
-    l1.PrintList();
+    l1.Push_back(1);
+    l1.Push_back(2);
+    l1.Push_back(3);
+    l1.Push_back(4);
 
+    cout << "List Last Value : " << l1.Back() << endl;
     cout << "List Size : " << l1.GetListSize() << endl;
-    l1.InsertInList(0, 2);
+    l1.PrintList();
+    l1.InsertInList(0, 3);
     l1.PrintList();
     cout << "List Size : " << l1.GetListSize() << endl;
-    l1.InsertInList(0, 5);
-    l1.PrintList();
-    cout << "List Size : " << l1.GetListSize() << endl;
-    l1.InsertInList(5, 7);
+    l1.pop_Back();
     l1.PrintList();
     cout << "List Size : " << l1.GetListSize() << endl;
 
