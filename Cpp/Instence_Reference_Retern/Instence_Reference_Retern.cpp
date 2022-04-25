@@ -2,21 +2,21 @@
 
 using namespace std;
 
-class Card
+class BankBook
 {
 private:
-    Card* card;
+    BankBook* bankBook;
     int consumption[13] = {0, };
     
 public:
-    Card () { card = this; }
+    BankBook () { bankBook = this; }
 
 public:
-    Card& use(int _month, int _money)
+    BankBook& use(int _month, int _money)
     {
         consumption[_month] = _money;
 
-        return *card;
+        return *this;
     }
 
     void consumptionPrint()
@@ -26,17 +26,16 @@ public:
             cout << i << " month consumption : " << consumption[i] << endl;
         }
     }
-
 };
 
 int main(void)
 {
-    Card hCard;
+    BankBook iBankBook;
 
-    hCard.use(1, 100).use(2, 200).use(3, 300);
-    hCard.use(4, 400);
+    iBankBook.use(1, 100).use(2, 200).use(3, 300);
+    iBankBook.use(4, 400);
 
-    hCard.consumptionPrint();
+    iBankBook.consumptionPrint();
 
     return 0;
 }
