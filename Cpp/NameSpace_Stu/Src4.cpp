@@ -1,37 +1,43 @@
-/*
-    namespace 중첩
-*/
-
 #include <iostream>
 
 using namespace std;
 
-namespace First
+namespace Student_Namespace_A
 {
-    void printA()
+    int Student_Namespace_num1;
+
+    void Student_Namespace_printA()
     {
-        cout << "First > printA" << endl;
+        cout << "A space printA" << endl;
     }
 
-    namespace Second
+    namespace B
     {
-        void printA()
+        void PrintB()
         {
-            cout << "Second > printA" << endl;
+            cout << "B space printB" << endl;
         }
     }
 }
 
-using First::Second::printA;
-// using First::printA;         // 이름 충돌로 오류 발생
+namespace A = Student_Namespace_A;          // 네임스페이스 별칭 지정
+auto printA = A::Student_Namespace_printA;  // 네임스페이스::식별자 형태로 별칭 지정
+auto num1 = A::Student_Namespace_num1;      // 네임스페이스::식별자 형태로 별칭 지정
+
+namespace B = Student_Namespace_A::B;       // 네임스페이스 중첩 형태 별칭 지정
 
 int main(void)
 {
-    First::printA();
-
-    First::Second::printA();
+    Student_Namespace_A::Student_Namespace_printA();
+    A::Student_Namespace_printA();
     printA();
-    
+
+    cout << Student_Namespace_A::Student_Namespace_num1 << endl;
+    cout << A::Student_Namespace_num1 << endl;
+    cout << num1 << endl;
+
+    Student_Namespace_A::B::PrintB();
+    B::PrintB();
 
     return 0;
 }
